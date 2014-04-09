@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TinyEditor - JavaScript WYSIWYG Editor</title>
+<link rel="stylesheet" href="tinyeditor.css">
+<script src="tiny.editor.packed.js"></script>
+</head>
+<body>
+
+<form action="mensaje.php" method="POST">
+
+<textarea type="text" id="tinyeditor" name="mensaje" style="width: 584px; height: 175px">
+</textarea>
+<script>
+var editor = new TINY.editor.edit('editor', {
+	id: 'tinyeditor',
+	width: 584,
+	height: 175,
+	cssclass: 'tinyeditor',
+	controlclass: 'tinyeditor-control',
+	rowclass: 'tinyeditor-header',
+	dividerclass: 'tinyeditor-divider',
+	controls: ['bold', 'italic', 'underline', 'strikethrough', '|', 'subscript', 'superscript', '|',
+		'orderedlist', 'unorderedlist', '|', 'outdent', 'indent', '|', 'leftalign',
+		'centeralign', 'rightalign', 'blockjustify', '|', 'unformat', '|', 'undo', 'redo', 'n',
+		'font', 'size', 'style', '|', 'image', 'hr', 'link', 'unlink', '|', 'print'],
+	footer: true,
+	fonts: ['Verdana','Arial','Georgia','Trebuchet MS'],
+	xhtml: true,
+	bodyid: 'editor',
+	footerclass: 'tinyeditor-footer',
+	toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
+	resize: {cssclass: 'resize'}
+});
+</script>
+<br>
+<input type='submit' onclick='editor.post()' style='text-align: right' id='enviar' value='Guardar mensaje'>
+</form>
+
+</body>
+</html>
